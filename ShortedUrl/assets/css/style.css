@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.background {
+    background: linear-gradient(132deg, #591BC5, #212335);
+    background-size: 400% 400%;
+    animation: Gradient 20s ease infinite;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    padding:0;
+    margin:0px;
+}
+.cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #D7D4E4;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 20s ease-in forwards infinite;
+}
+.cube:nth-child(2n) {
+    border-color: #FFF ;
+}
+.cube:nth-child(2) {
+    animation-delay: 1s;
+    left: 25vw;
+    top: 40vh;
+}
+.cube:nth-child(3) {
+    animation-delay: 2s;
+    left: 75vw;
+    top: 50vh;
+}
+.cube:nth-child(4) {
+    animation-delay: 3s;
+    left: 90vw;
+    top: 10vh;
+}
+
+header{
+    position: absolute;
+    top:45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* navbar */
+.navbar{
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    z-index: 10000;
+    transition: all 0.3s;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar .navbar-brand{
+    color: white;
+    font-size: 28px;
+    font-weight:600;
+}
+.navbar .nav-link{
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Header content & title & button*/
+.header-content{
+    margin-top:10%;
+    text-align: center;
+    color:  #EFEEF5;
+    font-family: 'Poppins', sans-serif;
+}
+.header-content h1{
+    text-transform: uppercase;
+    font-size: 3em;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+.header-content p {
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 10px auto;
+}
+.header-content button{
+    width: 140px;
+    margin:20px 10px 45px;
+    color: #591BC5;
+    font-size: 17px;
+    border:1px solid #EFEEF5;
+    font-weight: 500;
+    background: #EFEEF5;
+    border-radius: 20px;
+    padding: 10px;
+    cursor:pointer;
+    transition: .3s;
+}
+.header-content button:hover{
+    border-radius: 0;
+}
+/* Animate Background*/
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+
+/* form */
+.home-content .form-home .form-control{
+    width: 740px;
+    height: 48px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    /* margin-bottom: -50px; */
+}
+.home-content .form-home .form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+.home-content .form-home .btn-submit{
+    color: white;
+    border-color: wheat;
+    background-color: blue;
+    position: relative;
+    top: -43px;
+    left: 89%;
+}
+.home-content .form-home .btn-submit:hover{
+    background-color: transparent;
+}
+
+.card-short{
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    backdrop-filter: blur(4px);
+    margin-top: -28px;
+    transition: all .2s ease-in;
+}
+
+.output .otpt{
+    text-decoration: none;
+    color: rgb(231, 114, 114);
+    font-style: italic;
+}
+.btn-icon{
+    color: white;
+    font-size: 20px;
+    float: right;
+    margin-left: 8px;
+}
+.btn-icon:hover,
+.btn-icon:focus{
+    color: white;
+}
+
+.modal {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal img{
+    display: inline;
+    width: 100%;
+}
