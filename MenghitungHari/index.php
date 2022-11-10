@@ -75,7 +75,8 @@
                 $date = date('d', strtotime($tgl));
                 $bln = date('M', strtotime($tgl));
                 $thn = date('Y', strtotime($tgl));
-
+                echo $hari;
+                echo $date;
 
                 if($pil1 == 'hari' && $pil2 == 'datang'){
                     $htng = date('d-M-Y', strtotime('+'.$jml.'day', strtotime($tgl)));

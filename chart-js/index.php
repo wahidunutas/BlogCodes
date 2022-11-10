@@ -39,29 +39,28 @@ $koneksi = mysqli_connect("localhost", "root", "", "data_auth");
         </div>
     </section>
 
+
+    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        <?php
+            $qry = $koneksi->query("SELECT * FROM authors GROUP BY gender");
+            while($data = $qry->fetch_assoc()){
+                $dataLabel[] = $data['gender'];
+
+                $sql = $koneksi->query("SELECT * FROM authors WHERE gender='$data[gender]'");
+                $res = $sql->num_rows;
+                $jmlData[] = $res;
+            }
+        ?>
         const data = {
-            labels: [
-                'Female',
-                'Male'
-            ],
+            labels: <?php echo json_encode($dataLabel);?>,
             datasets: [{
                 label: 'My First Dataset',
-                data: [
-                    <?php 
-                    $qry = $koneksi->query("SELECT gender FROM authors WHERE gender='Female'");
-                    $resF = $qry->num_rows;
-                    echo $resF;
-                    ?>,
-                    <?php 
-                    $qry = $koneksi->query("SELECT gender FROM authors WHERE gender='Male'");
-                    $resF = $qry->num_rows;
-                    echo $resF;
-                    ?>
-                ],
+                data: <?php echo json_encode($jmlData);?>,
                 backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(54, 162, 235)'
